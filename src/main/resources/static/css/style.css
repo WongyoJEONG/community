@@ -1,0 +1,16 @@
+/* loginForm, myPage 등의 스타일 */
+body { background-color: #f8f9fa; }
+.hero-section { background: white; padding: 60px 0; border-bottom: 1px solid #eee; text-align: center; }
+.form-container { max-width: 500px; margin: 50px auto; }
+.login-card { width: 100%; max-width: 400px; border: none; border-radius: 15px; }
+
+body { background-color: #f8f9fa; }
+.content-box { min-height: 200px; white-space: pre-wrap; background-color: #fff; border: 1px solid #dee2e6; border-radius: 5px; padding: 20px; }
+.info-label { font-weight: bold; color: #495057; }
+
+.form-container { max-width: 500px; margin: 50px auto; }
+
+body { background-color: #f8f9fa; }
+.profile-card { border-left: 5px solid #0d6efd; }
+.table-hover tbody tr:hover { background-color: #f1f3f5; }
+/* ... 나머지 style 태그 내용 전부 ... */

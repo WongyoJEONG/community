@@ -17,7 +17,7 @@ public class WebSecurityConfig {
     //로그인 없이 접근 가능 경로
     private static final String[] PUBLIC_URLS = {
             "/"
-            , "/images/**", "/css/**", "/js/**"
+            , "/images/**", "/style.css/**", "/js/**"
             , "/member/**"          // 회원 관련 경로 통째로 허용 (join, login 등)
             , "/error"
     };
