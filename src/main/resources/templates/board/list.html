@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#categorySelect").change(function(){
+                let selectedCategory = $(this).val();
+                loadBoardList(selectedCategory);
+            });
+        });
+
+        function loadBoardList(category) {
+            $.ajax({
+                url: '/board/list-ajax',
+                type: 'GET',
+                data: {category: category},
+                success: function(fragment) {
+                    $("#boardListContainer").replaceWith(fragment);
+                }
+            });
+        }
+    </script>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold">📢 소모임 모집 게시판</h2>
+        <a th:href="@{/board/writeForm}" class="btn btn-primary">✏️ 새 모임 만들기</a>
+    </div>
+
+    <div class="mb-3 w-25 ms-auto">
+        <select id="categorySelect" class="form-select shadow-sm">
+            <option value="ALL">📂 전체 카테고리</option>
+            <option value="STUDY">📖 STUDY</option>
+            <option value="HEALTHY">💪 HEALTHY</option>
+            <option value="TRIP">✈️ TRIP</option>
+        </select>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div th:replace="~{board/listFragment :: boardListFragment}"></div>
+        </div>
+    </div>
+
+    <div class="mt-3 text-center">
+        <a th:href="@{/}" class="text-decoration-none text-secondary">← HOME으로 돌아가기</a>
+    </div>
+</div>
+
+</body>
+</html>
